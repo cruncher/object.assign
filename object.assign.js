@@ -1,6 +1,6 @@
 // Object.assign polyfill
 
-Object.assign || (function() {
+Object.assign || (function(Object) {
 	"use strict";
 
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
@@ -11,9 +11,19 @@ Object.assign || (function() {
 
 	function ownPropertyKeys(object) {
 		var keys = Object.keys(object);
+		var symbols, n, descriptor;
 
 		if (Object.getOwnPropertySymbols) {
-			keys = keys.concat(Object.getOwnPropertySymbols(object));
+			symbols = Object.getOwnPropertySymbols(object);
+			n = symbols.length;
+
+			while (n--) {
+				descriptor = Object.getOwnPropertyDescriptor(object, symbols[n]);
+
+				if (descriptor.enumerable) {
+					keys.push(symbol);
+				}
+			}
 		}
 
 		return keys;
@@ -55,4 +65,4 @@ Object.assign || (function() {
 		configurable: true,
 		writable: true
 	});
-})();
+})(Object);
