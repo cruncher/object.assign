@@ -27,7 +27,7 @@ Object.assign || (function() {
 
 			var object = Object(target);
 			var n = 1;
-			var source, keys, key, k, descriptor;
+			var source, keys, key, k;
 
 			for (n; n < arguments.length; n++) {
 				source = arguments[n];
