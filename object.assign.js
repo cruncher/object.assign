@@ -3,7 +3,7 @@
 // Object.assign(target, source1, source2, ...)
 //
 // All own enumerable properties are copied from the source
-// objects to the target object. 
+// objects to the target object.
 
 Object.assign || (function(Object) {
 	"use strict";
