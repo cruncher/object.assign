@@ -3,8 +3,6 @@
 Object.assign || (function(Object) {
 	"use strict";
 
-	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
 	function isDefined(val) {
 		return val !== undefined && val !== null;
 	}
