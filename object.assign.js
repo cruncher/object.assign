@@ -1,4 +1,9 @@
 // Object.assign polyfill
+//
+// Object.assign(target, source1, source2, ...)
+//
+// All own enumerable properties are copied from the source
+// objects to the target object. 
 
 Object.assign || (function(Object) {
 	"use strict";
@@ -34,19 +39,15 @@ Object.assign || (function(Object) {
 			}
 
 			var object = Object(target);
-			var n = 1;
-			var source, keys, key, k;
+			var n, source, keys, key, k;
 
-			for (n; n < arguments.length; n++) {
+			for (n = 1; n < arguments.length; n++) {
 				source = arguments[n];
 
 				// Ignore any undefined sources
 				if (!isDefined(source)) { continue; }
 
-				// Get own enumerable keys and all own symbols (I think symbols
-				// are by definition non-enumerable, but I'm not clear on this,
-				// as they are defineable as enumerable with
-				// Object.defineProperty, strangely).
+				// Get own enumerable keys and symbols
 				keys = ownPropertyKeys(Object(source));
 				k = keys.length;
 
