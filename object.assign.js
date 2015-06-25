@@ -5,7 +5,7 @@
 // All own enumerable properties are copied from the source
 // objects to the target object.
 
-Object.assign || (function(Object) {
+(Object.assign || (function(Object) {
 	"use strict";
 
 	function isDefined(val) {
@@ -64,4 +64,4 @@ Object.assign || (function(Object) {
 		configurable: true,
 		writable: true
 	});
-})(Object);
+})(Object));
